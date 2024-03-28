@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import Scraping_Dynamic_Values as dy
+import time
 
 
 def get_driver():
@@ -18,13 +18,13 @@ def get_driver():
   return driver
 
 
-def main():
+def clean_text(text):
+  return float(text.split(": ")[1])
+
+
+def main2():
   driver = get_driver()
-  element = driver.find_element(By.XPATH, "/html/body/div[1]/div/h1[1]")
+  time.sleep(2)
+  element = driver.find_element(By.XPATH, "/html/body/div[1]/div/h1[2]")
   # OR element = driver.find_element(By="xpath", value="/html/body/div[1]/div/h1[1]")
-  return element.text
-
-
-print(main())
-print("||")
-print(dy.main2())
+  return clean_text(element.text)
