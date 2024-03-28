@@ -20,6 +20,7 @@ def get_driver():
 def main():
   driver = get_driver()
   element = driver.find_element(By.XPATH, "/html/body/div[1]/div/h1[1]")
+  # OR element = driver.find_element(By="xpath", value="/html/body/div[1]/div/h1[1]")
   return element.text
 
 
